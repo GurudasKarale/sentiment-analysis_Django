@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.container {
+  border-radius: 25px;
+  background-color: white;
+  color: white;
+  color:	#808080;
+  display:inline-block;
+  margin-left:170px;
+  border:1px solid #eee;
+  box-shadow:0 2px 2px #ccc;
+  width:900px;
+  padding:10px;
+  text-align: center;
+}
+.button {
+  border-radius: 25px;
+
+  background-color:  #008CBA;
+  color: white;
+  font-size: 16px;
+
+}
+
+.heading {
+  border-radius: 25px;
+  background-color: white;
+  color: white;
+  color:	#808080;
+  display:inline-block;
+  margin:10px;
+  border:1px solid #eee;
+  box-shadow:0 2px 2px #ccc;
+  width:700px;
+  padding:10px;
+  text-align: center;
+}
+
+.frm {
+  border-radius: 25px;
+  background-color: white;
+  color: white;
+  color:	#808080;
+  display:inline-block;
+  margin:10px;
+  border:1px solid #eee;
+  box-shadow:0 2px 2px #ccc;
+  width:700px;
+  padding:10px;
+
+}
+.twtt {
+  border-radius: 25px;
+  margin-left:90px;
+  border:1px solid #eee;
+  padding:10px;
+  width:700px;
+  text-align: left;
+}
+.result {
+  border-radius: 25px;
+  margin-left:90px;
+  border:1px solid #eee;
+  padding:10px;
+  width:700px;
+  text-align: left;
+}
+
+
+</style>
+    <script>
+function validateForm() {
+  var x = document.forms["myForm"]["txtarea"].value;
+  if (x == '') {
+    alert("No text!");
+    return false;
+    }
+  }
+    </script>
+
+</head>
+
+<body>
+
+<div class="container">
+<div class="heading"><h1>Sentiment Analysis</h1></div>
+
+<div class="frm">
+    <form name="myForm" action="getSentiment" method="post" onsubmit="return validateForm()" >
+        {% csrf_token %}
+    <label for="txtarea">Analyze the sentence.:</label>
+    <textarea name="txtarea" rows="4" cols="50"></textarea>
+	<br><br>
+    <input type="submit" class="button" value="Analyze">
+    </form>
+</div>
+
+    <div class="twtt"><strong>{{ttt}} </strong> </div>
+    <div class="result"><strong>{{result}} </strong> </div>
+</div>
+</body>
+</html>
